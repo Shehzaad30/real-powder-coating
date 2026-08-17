@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shade Gallery — Real Powder Coating | RAL Colors, Metallics & Textured Finishes</title>
+<meta name="description" content="Explore the full shade library at Real Powder Coating, Vadodara — RAL Classic, metallic, textured and fluorescent powder coat finishes. Filter, search, and find your color." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0e0f11;
+    --steel: #16191c;
+    --zinc: #1f2327;
+    --line: #2b3036;
+    --line-hl: rgba(255,255,255,.07);
+    --fog: #969ca3;
+    --mist: #c9ced3;
+    --cure: #ff5a1f;
+    --cure-deep: #e0440f;
+    --cure-bright: #ff7a45;
+    --gold: #e7c9a3;
+    --gold-dim: #c6a87f;
+    --white: #f7f8f9;
+    --shadow: 0 24px 60px -24px rgba(0,0,0,.72);
+    --maxw: 1200px;
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Inter", system-ui, sans-serif; background: radial-gradient(120% 80% at 82% -8%, rgba(255,90,31,.10), transparent 55%), radial-gradient(90% 60% at 0% 0%, rgba(120,140,170,.05), transparent 50%), var(--ink); background-attachment: fixed; color: var(--mist); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body::before { content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  h1, h2, h3, h4 { font-family: "Archivo", sans-serif; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; }
+
+  .eyebrow { font-family: "Space Mono", monospace; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--cure); display: inline-flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ""; width: 32px; height: 1px; background: linear-gradient(90deg, var(--gold), var(--cure)); display: inline-block; }
+
+  /* NAV */
+  header { position: sticky; top: 0; z-index: 50; background: rgba(19,21,23,.82); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-chip { width: 30px; height: 30px; border-radius: 6px; background: linear-gradient(135deg, var(--cure), var(--cure-deep)); box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 4px 14px rgba(255,90,31,.35); position: relative; flex: none; }
+  .brand-chip::after { content: ""; position: absolute; inset: 6px 6px auto 6px; height: 7px; border-radius: 3px; background: rgba(255,255,255,.45); }
+  .brand-name { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 18px; color: var(--white); }
+  .brand-name span { color: var(--cure); }
+  .brand-sub { font-family: "Space Mono", monospace; font-size: 9.5px; letter-spacing: .28em; color: var(--fog); text-transform: uppercase; margin-top: -2px; }
+  .nav-links { display: flex; align-items: center; gap: 34px; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--mist); transition: color .2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--cure); }
+  .btn { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 14px; padding: 12px 22px; border-radius: 8px; cursor: pointer; border: 1px solid transparent; display: inline-flex; align-items: center; gap: 9px; transition: transform .2s var(--ease), background .2s, box-shadow .2s; white-space: nowrap; }
+  .btn-primary { background: linear-gradient(180deg, var(--cure-bright), var(--cure-deep)); color: #220e04; border-color: rgba(255,150,100,.5); box-shadow: 0 8px 24px -6px rgba(255,90,31,.5), inset 0 1px 0 rgba(255,255,255,.4); }
+  .btn-primary:hover { filter: brightness(1.06); transform: translateY(-2px); box-shadow: 0 16px 34px -8px rgba(255,90,31,.6), inset 0 1px 0 rgba(255,255,255,.45); }
+  .btn-ghost { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0)); color: var(--white); border-color: var(--line); backdrop-filter: blur(6px); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-arrow { transition: transform .2s var(--ease); }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+  .nav-toggle { display: none; background: none; border: 1px solid var(--line); border-radius: 7px; padding: 9px; cursor: pointer; }
+  .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--white); margin: 4px 0; }
+
+  /* HERO */
+  .ghero { position: relative; padding: 80px 0 48px; overflow: hidden; }
+  .ghero-glow { position: absolute; top: -160px; left: -120px; width: 560px; height: 560px; background: radial-gradient(circle, rgba(255,90,31,.18), transparent 60%); pointer-events: none; }
+  .ghero-inner { position: relative; max-width: 760px; }
+  .ghero h1 { font-size: clamp(40px, 5.8vw, 76px); font-weight: 900; margin: 20px 0 0; letter-spacing: -.035em; }
+  .ghero h1 em { font-style: normal; background: linear-gradient(180deg, var(--cure-bright), var(--cure-deep)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .ghero p { font-size: clamp(16px, 1.5vw, 19px); color: var(--mist); max-width: 560px; margin-top: 22px; }
+  .ghero-tags { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; }
+  .tag { display: inline-flex; align-items: center; gap: 8px; font-family: "Space Mono", monospace; font-size: 12px; letter-spacing: .04em; color: var(--mist); background: linear-gradient(180deg, var(--zinc), var(--steel)); border: 1px solid var(--line); border-radius: 9px; padding: 9px 14px; box-shadow: inset 0 1px 0 var(--line-hl); }
+  .tag b { color: var(--cure); font-weight: 700; }
+
+  /* FILTER BAR */
+  .filterbar { position: sticky; top: 74px; z-index: 40; background: rgba(19,21,23,.94); backdrop-filter: blur(10px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .filter-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 0; flex-wrap: wrap; }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; }
+  .fbtn { font-family: "Space Mono", monospace; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--mist); background: var(--steel); border: 1px solid var(--line); border-radius: 30px; padding: 9px 16px; cursor: pointer; transition: all .2s; }
+  .fbtn:hover { border-color: #4b525a; color: var(--white); }
+  .fbtn.active { background: var(--cure); color: #1a0c04; border-color: var(--cure); }
+  .search { position: relative; }
+  .search input { background: var(--ink); border: 1px solid var(--line); border-radius: 9px; padding: 11px 14px 11px 38px; color: var(--white); font-family: "Inter", sans-serif; font-size: 14px; width: 260px; transition: border-color .2s, box-shadow .2s; }
+  .search input:focus { outline: none; border-color: var(--cure); box-shadow: 0 0 0 3px rgba(255,90,31,.15); }
+  .search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--fog); }
+
+  /* GRID */
+  .gallery { padding: 40px 0 80px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .card { cursor: default; }
+  .card.hide { display: none; }
+  .swatch { position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,.08); transition: transform .3s var(--ease), box-shadow .3s, border-color .3s; }
+  .swatch::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 36%; background: linear-gradient(rgba(255,255,255,.26), transparent); pointer-events: none; }
+  .card:hover .swatch { transform: translateY(-5px); box-shadow: 0 16px 30px rgba(0,0,0,.5), inset 0 0 18px rgba(255,90,31,.25); border-color: var(--cure); }
+  .swatch.metallic { background-image: linear-gradient(135deg, rgba(255,255,255,.28) 0%, rgba(255,255,255,0) 45%, rgba(0,0,0,.28) 100%); }
+  .swatch.textured::after { content: ""; position: absolute; inset: 0; opacity: .14; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .cat-badge { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); color: #fff; font-family: "Space Mono", monospace; font-size: 9px; letter-spacing: .06em; text-transform: uppercase; padding: 3px 7px; border-radius: 5px; }
+  .card h4 { font-size: 14px; font-weight: 600; margin-top: 11px; color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .card code { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--fog); }
+  .noresult { grid-column: 1 / -1; text-align: center; padding: 60px 0; color: var(--fog); font-family: "Space Mono", monospace; }
+  .disclaimer { margin-top: 34px; font-size: 13px; color: var(--fog); max-width: 620px; border-left: 2px solid var(--line); padding-left: 16px; line-height: 1.6; }
+
+  /* SPECS */
+  .specs { background: var(--steel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 88px 0; }
+  .specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .specs h2 { font-size: clamp(28px, 3.6vw, 44px); font-weight: 800; margin: 18px 0 0; letter-spacing: -.03em; background: linear-gradient(180deg, #fff 30%, #aeb4ba); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .specs .lead { color: var(--fog); margin-top: 16px; font-size: 16px; max-width: 460px; }
+  .feature { display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .feature:first-of-type { margin-top: 26px; }
+  .feature .ic { width: 40px; height: 40px; border-radius: 9px; background: var(--zinc); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; flex: none; color: var(--cure); }
+  .feature .ic svg { width: 19px; height: 19px; }
+  .feature h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .feature p { font-size: 13.5px; color: var(--fog); }
+  .spec-card { background: linear-gradient(160deg, var(--zinc), var(--steel)); border: 1px solid var(--line); border-radius: 16px; padding: 32px; box-shadow: var(--shadow), inset 0 1px 0 var(--line-hl); }
+  .spec-card h3 { font-size: 15px; font-family: "Space Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--cure); border-bottom: 1px solid var(--line); padding-bottom: 16px; margin-bottom: 4px; }
+  .spec-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--line); font-family: "Space Mono", monospace; font-size: 13px; }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row .k { color: var(--fog); }
+  .spec-row .v { color: var(--white); text-align: right; }
+
+  /* CTA */
+  .band { background: linear-gradient(135deg, var(--cure-bright), var(--cure-deep)); position: relative; overflow: hidden; box-shadow: inset 0 1px 0 rgba(255,255,255,.25); }
+  .band-stripes { position: absolute; inset: 0; opacity: .12; background: repeating-linear-gradient(45deg, #000 0 2px, transparent 2px 22px); }
+  .band-inner { padding: 64px 0; display: flex; align-items: center; justify-content: space-between; gap: 26px; flex-wrap: wrap; position: relative; z-index: 2; }
+  .band h2 { color: #1a0c04; font-size: clamp(26px, 3.4vw, 40px); font-weight: 900; max-width: 600px; }
+  .band p { color: rgba(26,12,4,.78); margin-top: 10px; font-size: 16px; font-weight: 500; }
+  .band .btn-dark { background: #1a0c04; color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+  .band .btn-dark:hover { background: #000; transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--line); padding: 50px 0 30px; }
+  .foot-bot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; }
+  .foot-bot p { font-family: "Space Mono", monospace; font-size: 12px; color: var(--fog); }
+  .foot-links { display: flex; gap: 24px; }
+  .foot-links a { font-size: 13px; color: var(--mist); transition: color .2s; }
+  .foot-links a:hover { color: var(--cure); }
+
+  @media (max-width: 1000px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-links.open { display: flex; position: absolute; top: 74px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--steel); border-bottom: 1px solid var(--line); padding: 12px 28px 22px; }
+    .nav-links.open a { padding: 13px 0; border-bottom: 1px solid var(--line); width: 100%; }
+    .specs-grid { grid-template-columns: 1fr; gap: 36px; }
+    .search input { width: 100%; }
+    .search { width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; }
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .nav .btn-primary { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <div class="brand-chip"></div>
+      <div>
+        <div class="brand-name">REAL <span>Powder Coating</span></div>
+        <div class="brand-sub">Finish · Cure · Protect</div>
+      </div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">Process</a>
+      <a href="gallery.html" class="active">Shades</a>
+      <a href="index.html#why">Why us</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary">Request a quote <span class="btn-arrow">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="ghero">
+  <div class="ghero-glow"></div>
+  <div class="wrap ghero-inner">
+    <span class="eyebrow">Shade library</span>
+    <h1>Infinite shades.<br><em>One</em> durable finish.</h1>
+    <p>Our full standard range — structures, textures, metallics, antiques, crocodile and glossy finishes — each shade oven-cured to the same hard, weatherproof standard. Filter by finish or search a name or shade code.</p>
+    <div class="ghero-tags">
+      <div class="tag"><b>100+</b> standard shades</div>
+      <div class="tag"><b>6</b> finish families</div>
+      <div class="tag"><b>Custom</b> matching on request</div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filterbar">
+  <div class="wrap filter-inner">
+    <div class="filters" id="filters">
+      <button class="fbtn active" data-cat="all">All shades</button>
+      <button class="fbtn" data-cat="Structure">Structure</button>
+      <button class="fbtn" data-cat="Texture">Texture</button>
+      <button class="fbtn" data-cat="Metallic">Metallic</button>
+      <button class="fbtn" data-cat="Antique">Antique</button>
+      <button class="fbtn" data-cat="Crocodile">Crocodile</button>
+      <button class="fbtn" data-cat="Glossy">Glossy</button>
+    </div>
+    <div class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="search" type="text" placeholder="Search name or code..." />
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY GRID -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="grid" id="grid"></div>
+    <p class="disclaimer">Screen colors are approximate and may vary from the cured finish. Ask for a physical shade card or sample panel to confirm your exact color before production.</p>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs">
+  <div class="wrap specs-grid">
+    <div>
+      <span class="eyebrow">Industrial-grade standards</span>
+      <h2>Every shade. The same hard finish.</h2>
+      <p class="lead">Color is the choice — durability is the constant. Each coat is applied and cured to measured, repeatable specs.</p>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 8 8 8 8s8-3 8-8V6z"/></svg></div>
+        <div><h4>Salt-spray resistant</h4><p>Coatings hold up through extended salt-spray exposure for strong corrosion resistance on outdoor metal.</p></div>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <div><h4>Electrostatic precision</h4><p>Charged application wraps every edge and recess for 100% uniform, drip-free coverage.</p></div>
+      </div>
+      <div class="feature">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></div>
+        <div><h4>Controlled curing</h4><p>Monitored oven temperatures guarantee full cross-link, finish hardness and adhesion on every batch.</p></div>
+      </div>
+    </div>
+    <div class="spec-card">
+      <h3>// Coating specs</h3>
+      <div class="spec-row"><span class="k">Classification</span><span class="v">RAL 840-HR / 841-GL</span></div>
+      <div class="spec-row"><span class="k">Gloss levels</span><span class="v">0% – 100% units</span></div>
+      <div class="spec-row"><span class="k">Layer thickness</span><span class="v">60 – 120 microns</span></div>
+      <div class="spec-row"><span class="k">Adhesion class</span><span class="v">GT 0 (ISO 2409)</span></div>
+      <div class="spec-row"><span class="k">Impact test</span><span class="v">&gt; 2.5 Nm (ISO 6272)</span></div>
+      <div class="spec-row"><span class="k">Finishes</span><span class="v">Gloss · Matte · Texture · Metallic</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="band">
+  <div class="band-stripes"></div>
+  <div class="wrap band-inner">
+    <div>
+      <h2>Found your shade? Let's coat it.</h2>
+      <p>Send your color choice and part details — we'll quote a price and turnaround.</p>
+    </div>
+    <a href="index.html#contact" class="btn btn-dark">Request a quote <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-bot">
+    <p>© <span id="year"></span> Real Powder Coating · Vadodara, Gujarat</p>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="tel:+919898606618">+91 98986 06618</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+  // shade data
+  const colors = [
+    // Structure
+    { name: "Deep Orange",      code: "ST3117-HB", hex: "#e98400", cat: "Structure" },
+    { name: "Orange",           code: "ST3163-HB", hex: "#eb3700", cat: "Structure" },
+    { name: "Golden Yellow",    code: "ST3104-HB", hex: "#eabb00", cat: "Structure" },
+    { name: "Pistal Orange",    code: "ST3023-HB", hex: "#f07900", cat: "Structure" },
+    { name: "Signal Red",       code: "ST3150-HB", hex: "#c83d34", cat: "Structure" },
+    { name: "Rubbin",           code: "ST3039-HB", hex: "#dd1040", cat: "Structure" },
+    { name: "Wood Brown",       code: "ST3183-HB", hex: "#c76a01", cat: "Structure" },
+    { name: "P.O. Red",         code: "ST3111-HB", hex: "#b63526", cat: "Structure" },
+    { name: "Maroon",           code: "ST3012-HB", hex: "#5f000f", cat: "Structure" },
+    { name: "IS-275 Green",     code: "ST3116-HB", hex: "#82b886", cat: "Structure" },
+    { name: "Smoke Grey",       code: "ST3043-HB", hex: "#5496aa", cat: "Structure" },
+    { name: "Mac Blue",         code: "ST3010-HB", hex: "#336ad7", cat: "Structure" },
+    { name: "IS-281 Green",     code: "ST3003-HB", hex: "#659e50", cat: "Structure" },
+    { name: "Blue",             code: "ST3172-HB", hex: "#2bb8db", cat: "Structure" },
+    { name: "Kangaro Blue",     code: "ST3037-HB", hex: "#3c5cc7", cat: "Structure" },
+    { name: "Machine Green",    code: "ST3048-HB", hex: "#60885c", cat: "Structure" },
+    { name: "Deep Blue",        code: "ST3121-HB", hex: "#249ce1", cat: "Structure" },
+    { name: "Wild Lilac",       code: "ST3106-HB", hex: "#5932b2", cat: "Structure" },
+    { name: "RAL6010 Green",    code: "ST3094-HB", hex: "#2b6c29", cat: "Structure" },
+    { name: "RAL5015 Blue",     code: "ST3174-HB", hex: "#3280cd", cat: "Structure" },
+    { name: "Beige",            code: "ST3141-HB", hex: "#a1825a", cat: "Structure" },
+    { name: "Parrot Green",     code: "ST3047-HB", hex: "#61ab00", cat: "Structure" },
+    { name: "RAL5005 Blue",     code: "ST3215-HB", hex: "#001f75", cat: "Structure" },
+    { name: "Nut Brown",        code: "ST3018-HB", hex: "#500e00", cat: "Structure" },
+    { name: "Light Grey",       code: "ST3409-HB", hex: "#6a7a60", cat: "Structure" },
+    { name: "V.I.P. Blue",      code: "ST3103-HB", hex: "#00188c", cat: "Structure" },
+    { name: "Chocolate Brown",  code: "ST3129-HB", hex: "#2c0d06", cat: "Structure" },
+    { name: "RAL6033 Green",    code: "ST3222-HB", hex: "#136c66", cat: "Structure" },
+    { name: "Pepsi Blue",       code: "ST3152-HB", hex: "#00054e", cat: "Structure" },
+    { name: "B.C.B.",           code: "ST3108-HB", hex: "#230d06", cat: "Structure" },
+    { name: "Water Blue",       code: "ST3149-HB", hex: "#005a58", cat: "Structure" },
+    { name: "Oxford Blue",      code: "ST3113-HB", hex: "#00062e", cat: "Structure" },
+    { name: "Black",            code: "ST3406-HB", hex: "#12100a", cat: "Structure" },
+    { name: "Pure White",       code: "ST3146-HB", hex: "#c6cdd1", cat: "Structure" },
+    { name: "RAL7035 Grey",     code: "ST3145-HB", hex: "#bebdb5", cat: "Structure" },
+    { name: "Siemens Grey",     code: "ST3041-HB", hex: "#b5ac87", cat: "Structure" },
+    { name: "Ultra White",      code: "ST3148-HB", hex: "#c9cbc4", cat: "Structure" },
+    { name: "Havells Grey",     code: "ST3107-HB", hex: "#bab9b2", cat: "Structure" },
+    { name: "Siemens Grey",     code: "ST3432-HB", hex: "#aaa18a", cat: "Structure" },
+    { name: "RAL9003 White",    code: "ST3218-HB", hex: "#c8cac3", cat: "Structure" },
+    { name: "RAL7035 Grey",     code: "ST3073-HB", hex: "#b7bab2", cat: "Structure" },
+    { name: "RAL7032 Grey",     code: "ST3032-HB", hex: "#a19969", cat: "Structure" },
+    { name: "Broken White",     code: "ST3408-HB", hex: "#c0c0b4", cat: "Structure" },
+    { name: "Steel Grey",       code: "ST3115-HB", hex: "#94958d", cat: "Structure" },
+    { name: "Siemens Grey",     code: "ST3405-HB", hex: "#9c9567", cat: "Structure" },
+    { name: "Marbal White",     code: "ST3105-HB", hex: "#aaaa9f", cat: "Structure" },
+    { name: "Munshell Grey",    code: "ST3407-HB", hex: "#6c736c", cat: "Structure" },
+    { name: "Dark Grey",        code: "ST3114-HB", hex: "#252c30", cat: "Structure" },
+    { name: "RAL9002 Grey",     code: "ST3034-HB", hex: "#9b9b91", cat: "Structure" },
+    { name: "RAL7000 Grey",     code: "ST3077-HB", hex: "#4e5a59", cat: "Structure" },
+    { name: "RAL7016 Grey",     code: "ST3138-HB", hex: "#1d2d31", cat: "Structure" },
+    { name: "Light Ivory",      code: "ST3123-HB", hex: "#a39b84", cat: "Structure" },
+    { name: "Dusty Grey",       code: "ST3119-HB", hex: "#383b37", cat: "Structure" },
+    { name: "HOF Grey",         code: "ST3008-HB", hex: "#222327", cat: "Structure" },
+    { name: "Dark Ivory",       code: "ST3133-HB", hex: "#9b926f", cat: "Structure" },
+    { name: "D.A. Grey",        code: "ST3410-HB", hex: "#272f30", cat: "Structure" },
+    { name: "RAL7021 Grey",     code: "ST3214-HB", hex: "#131715", cat: "Structure" },
+    // Texture
+    { name: "RAL9003 White",    code: "TX4046-HB", hex: "#c1cdcc", cat: "Texture" },
+    { name: "President Blue",   code: "TX4003-HB", hex: "#1480b6", cat: "Texture" },
+    { name: "Wood",             code: "TX4512-HB", hex: "#945504", cat: "Texture" },
+    { name: "Off White",        code: "TX4022-HB", hex: "#b0bbba", cat: "Texture" },
+    { name: "Blue",             code: "TX4009-HB", hex: "#005493", cat: "Texture" },
+    { name: "470C Pantone Wood",code: "TX4526-HB", hex: "#b34d00", cat: "Texture" },
+    { name: "Light Ivory",      code: "TX4001-HB", hex: "#a4aa97", cat: "Texture" },
+    { name: "Graphite Grey",    code: "TX4010-HB", hex: "#2e3637", cat: "Texture" },
+    { name: "Orange",           code: "TX4023-HB", hex: "#c02600", cat: "Texture" },
+    { name: "Royal Grey",       code: "TX4026-HB", hex: "#6e715c", cat: "Texture" },
+    { name: "Grey",             code: "TX4057-HB", hex: "#152d38", cat: "Texture" },
+    { name: "Black",            code: "TX4002-HB", hex: "#1f221f", cat: "Texture" },
+    // Metallic (Glossy Special / Metallic + Matt/Satin Metallic)
+    { name: "Pale Copper",      code: "SP7155-HB", hex: "#c77531", cat: "Metallic" },
+    { name: "Pale Gold",        code: "SP7161-HB", hex: "#cfad40", cat: "Metallic" },
+    { name: "Gold Brown",       code: "GM7520-PP", hex: "#1c130e", cat: "Metallic" },
+    { name: "Bright Silver",    code: "SP7160-HB", hex: "#b5bab6", cat: "Metallic" },
+    { name: "Special Silver",   code: "SP7151-HB", hex: "#9ba09c", cat: "Metallic" },
+    { name: "Sparkle Silver",   code: "SP7159-HB", hex: "#858a86", cat: "Metallic" },
+    { name: "Red",              code: "GM7511-HB", hex: "#630808", cat: "Metallic" },
+    { name: "Blue",             code: "GM7512-HB", hex: "#031650", cat: "Metallic" },
+    { name: "Black",            code: "GM7510-HB", hex: "#0a0a08", cat: "Metallic" },
+    { name: "Ivory",            code: "TXM7519-HB",hex: "#dcdacd", cat: "Metallic" },
+    { name: "IGP",              code: "TXM4533-PP",hex: "#787a75", cat: "Metallic" },
+    { name: "Sable Blue",       code: "TXM4534-PP",hex: "#515551", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4532-PP",hex: "#a9aba8", cat: "Metallic" },
+    { name: "Dark Grey",        code: "TXM4528-PP",hex: "#706f67", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4536-PP",hex: "#3c4240", cat: "Metallic" },
+    { name: "Aztech Grey",      code: "TXM4530-PP",hex: "#878173", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4521-PP",hex: "#5a5954", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4519-PP",hex: "#313330", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4517-PP",hex: "#645c4f", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4515-PP",hex: "#595348", cat: "Metallic" },
+    { name: "Black",            code: "TXM7513-HB",hex: "#242320", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4514-PP",hex: "#524b40", cat: "Metallic" },
+    { name: "Grey",             code: "TXM4518-PP",hex: "#4a4339", cat: "Metallic" },
+    { name: "Brown",            code: "TXM4537-PP",hex: "#261d18", cat: "Metallic" },
+    { name: "Grey",             code: "MM7517-PP", hex: "#44433e", cat: "Metallic" },
+    { name: "Grey",             code: "SM1610-PP", hex: "#554d42", cat: "Metallic" },
+    { name: "Anodic Bronze",    code: "SM1617-PP", hex: "#251710", cat: "Metallic" },
+    // Antique
+    { name: "Red",              code: "AT7122-HB", hex: "#a8908b", cat: "Antique" },
+    { name: "Blue",             code: "AT7123-HB", hex: "#7a8bad", cat: "Antique" },
+    { name: "White",            code: "AT7121-HB", hex: "#b2b7b3", cat: "Antique" },
+    { name: "Copper",           code: "AT7120-HB", hex: "#643c28", cat: "Antique" },
+    { name: "Gold",             code: "AT7119-HB", hex: "#766c58", cat: "Antique" },
+    { name: "Silver",           code: "AT7118-HB", hex: "#868985", cat: "Antique" },
+    // Crocodile
+    { name: "Dark Grey",        code: "C7360-HB",  hex: "#282a25", cat: "Crocodile" },
+    { name: "Blue",             code: "C7369-HB",  hex: "#0b111e", cat: "Crocodile" },
+    { name: "Brown",            code: "C7359-HB",  hex: "#1b1612", cat: "Crocodile" },
+    // Glossy (PP)
+    { name: "RAL9003 White",    code: "G507-PP",   hex: "#dce1dd", cat: "Glossy" },
+    { name: "RAL9016 White",    code: "G587-PP",   hex: "#dbdfdc", cat: "Glossy" },
+    { name: "Light Ivory",      code: "G502-PP",   hex: "#d1d5da", cat: "Glossy" }
+  ];
+
+  const grid = document.getElementById('grid');
+  function isLight(hex) {
+    const r = parseInt(hex.slice(1,3),16), g = parseInt(hex.slice(3,5),16), b = parseInt(hex.slice(5,7),16);
+    return (0.299*r + 0.587*g + 0.114*b) > 150;
+  }
+  function render(list) {
+    if (!list.length) { grid.innerHTML = '<div class="noresult">// No shades match — try another name or code.</div>'; return; }
+    grid.innerHTML = list.map(c => {
+      const finishClass = (c.cat === 'Metallic' || c.cat === 'Antique') ? ' metallic'
+        : (c.cat === 'Structure' || c.cat === 'Texture' || c.cat === 'Crocodile') ? ' textured' : '';
+      return `<div class="card">
+        <div class="swatch${finishClass}" style="background-color:${c.hex}">
+          <span class="cat-badge">${c.cat}</span>
+        </div>
+        <h4>${c.name}</h4>
+        <code>${c.code}</code>
+      </div>`;
+    }).join('');
+  }
+  render(colors);
+
+  // filtering + search
+  let activeCat = 'all';
+  let query = '';
+  function apply() {
+    const q = query.trim().toLowerCase();
+    const list = colors.filter(c =>
+      (activeCat === 'all' || c.cat === activeCat) &&
+      (q === '' || c.name.toLowerCase().includes(q) || c.code.toLowerCase().includes(q))
+    );
+    render(list);
+  }
+  document.getElementById('filters').addEventListener('click', e => {
+    const btn = e.target.closest('.fbtn');
+    if (!btn) return;
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    apply();
+  });
+  document.getElementById('search').addEventListener('input', e => { query = e.target.value; apply(); });
+</script>
+</body>
+</html>

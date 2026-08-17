@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Real Powder Coating — Durable finishes, done right</title>
+<meta name="description" content="Real Powder Coating delivers durable, factory-grade powder coat finishes on automotive, architectural, and industrial metalwork. Blast, coat, and cure — built to last." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0e0f11;
+    --steel: #16191c;
+    --zinc: #1f2327;
+    --line: #2b3036;
+    --line-hl: rgba(255,255,255,.07);
+    --fog: #969ca3;
+    --mist: #c9ced3;
+    --paper: #eceef0;
+    --paper-2: #dfe2e5;
+    --cure: #ff5a1f;
+    --cure-deep: #e0440f;
+    --cure-bright: #ff7a45;
+    --gold: #e7c9a3;
+    --gold-dim: #c6a87f;
+    --white: #f7f8f9;
+    --shadow: 0 24px 60px -24px rgba(0,0,0,.72);
+
+    /* finish chip colors (RAL-inspired) */
+    --ral-9005: #15171a;
+    --ral-5005: #1f3f8f;
+    --ral-6018: #4f9b39;
+    --ral-3020: #c8211c;
+    --ral-1023: #f3c20b;
+    --ral-7016: #383e42;
+    --ral-4008: #843b6b;
+    --ral-9006: #a4a8ad;
+
+    --maxw: 1200px;
+    --ease: cubic-bezier(.22,.61,.36,1);
+    --panel-bg: linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    --panel-border: rgba(255,255,255,.08);
+    --panel-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    --focus-ring: 0 0 0 3px rgba(255,90,31,.16);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background:
+      radial-gradient(120% 80% at 82% -8%, rgba(255,90,31,.10), transparent 55%),
+      radial-gradient(90% 60% at 0% 0%, rgba(120,140,170,.05), transparent 50%),
+      var(--ink);
+    background-attachment: fixed;
+    color: var(--mist);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-color: var(--cure);
+  }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 3vw, 28px); }
+  .card-equal, .svc, .facility-card, .facility-stat, .proc, .industry-card, .hero-stat, .why-item, .contact-side, form {
+    display: flex; flex-direction: column; height: 100%;
+  }
+
+  .eyebrow {
+    font-family: "Space Mono", monospace;
+    font-size: 12px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--cure);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 32px; height: 1px;
+    background: linear-gradient(90deg, var(--gold), var(--cure));
+    display: inline-block;
+  }
+
+  h1, h2, h3 { font-family: "Archivo", sans-serif; color: var(--white); line-height: 1.02; letter-spacing: -0.02em; }
+
+  /* ---------- NAV ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(19,21,23,.72);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, background .3s;
+  }
+  header.scrolled { border-color: var(--line); background: rgba(19,21,23,.92); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 74px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-chip {
+    width: 30px; height: 30px; border-radius: 6px;
+    background: linear-gradient(135deg, var(--cure), var(--cure-deep));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 4px 14px rgba(255,90,31,.35);
+    position: relative; flex: none;
+  }
+  .brand-chip::after {
+    content: ""; position: absolute; inset: 6px 6px auto 6px; height: 7px; border-radius: 3px;
+    background: rgba(255,255,255,.45);
+  }
+  .brand-name { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 18px; color: var(--white); letter-spacing: -.01em; }
+  .brand-name span { color: var(--cure); }
+  .brand-sub { font-family: "Space Mono", monospace; font-size: 9.5px; letter-spacing: .28em; color: var(--fog); text-transform: uppercase; margin-top: -2px; }
+
+  .nav-links { display: flex; align-items: center; gap: 34px; }
+  .nav-links a { font-size: 14px; font-weight: 500; color: var(--mist); transition: color .2s; }
+  .nav-links a:hover { color: var(--white); }
+
+  .btn {
+    font-family: "Archivo", sans-serif; font-weight: 700; font-size: 14px;
+    padding: 12px 22px; border-radius: 8px; cursor: pointer; border: 1px solid transparent;
+    display: inline-flex; align-items: center; gap: 9px; transition: transform .2s var(--ease), background .2s, box-shadow .2s;
+    white-space: nowrap;
+  }
+  .btn-primary { background: linear-gradient(180deg, var(--cure-bright), var(--cure-deep)); color: #220e04; border-color: rgba(255,150,100,.5); box-shadow: 0 8px 24px -6px rgba(255,90,31,.5), inset 0 1px 0 rgba(255,255,255,.4); }
+  .btn-primary:hover { filter: brightness(1.06); transform: translateY(-2px); box-shadow: 0 16px 34px -8px rgba(255,90,31,.6), inset 0 1px 0 rgba(255,255,255,.45); }
+  .btn-ghost { background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0)); color: var(--white); border-color: var(--line); backdrop-filter: blur(6px); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-arrow { transition: transform .2s var(--ease); }
+  .btn:hover .btn-arrow { transform: translateX(3px); }
+
+  .nav-toggle { display: none; background: none; border: 1px solid var(--line); border-radius: 7px; padding: 9px; cursor: pointer; }
+  .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--white); margin: 4px 0; transition: .25s; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; padding: 96px 0 88px; overflow: hidden; isolation: isolate;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% 0 auto auto; width: 68%; height: 70%;
+    background: radial-gradient(circle at 50% 50%, rgba(255,90,31,.18), transparent 64%);
+    filter: blur(30px); z-index: -2; animation: pulseGlow 8s ease-in-out infinite alternate;
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 64px 64px; opacity: .36;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.7), transparent 95%);
+    mask-image: linear-gradient(180deg, rgba(0,0,0,.7), transparent 95%);
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 68px 68px; opacity: .12; animation: gridMove 18s linear infinite;
+    -webkit-mask-image: radial-gradient(ellipse 84% 68% at 72% 22%, #000 24%, transparent 78%);
+    mask-image: radial-gradient(ellipse 84% 68% at 72% 22%, #000 24%, transparent 78%);
+  }
+  .hero-glow {
+    position: absolute; top: -190px; right: -130px; width: 620px; height: 620px;
+    background: radial-gradient(circle, rgba(255,90,31,.22), transparent 60%);
+    filter: blur(20px); pointer-events: none; animation: floatGlow 10s ease-in-out infinite alternate;
+  }
+  .hero-glow.hero-glow-b {
+    top: auto; bottom: -180px; left: -120px; width: 440px; height: 440px;
+    background: radial-gradient(circle, rgba(91,112,142,.24), transparent 66%);
+    animation-delay: -3s;
+  }
+  .hero-inner { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+
+  .hero-copy { max-width: 620px; }
+  .hero h1 { font-size: clamp(46px, 6.6vw, 94px); font-weight: 900; margin: 20px 0 0; letter-spacing: -.042em; line-height: .95; text-wrap: balance; }
+  .hero h1 .line { display: block; overflow: hidden; }
+  .hero h1 em {
+    font-style: normal; background: linear-gradient(180deg, var(--cure-bright), var(--cure-deep));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; position: relative;
+  }
+  .hero-lead { font-size: clamp(16px, 1.5vw, 19px); color: var(--mist); max-width: 560px; margin-top: 24px; line-height: 1.78; }
+  .hero-cta { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+  .hero-cta .btn { position: relative; overflow: hidden; }
+  .hero-cta .btn::after {
+    content: ""; position: absolute; inset: -140% auto auto -20%; width: 40%; height: 240%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.32) 50%, transparent 100%);
+    transform: rotate(20deg); animation: buttonShine 4.5s linear infinite;
+    pointer-events: none;
+  }
+
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid rgba(255,255,255,.12);
+    border-radius: 999px; background: rgba(255,255,255,.04); backdrop-filter: blur(10px);
+    font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--mist);
+  }
+  .hero-badge .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg, var(--cure-bright), var(--cure-deep));
+    box-shadow: 0 0 8px rgba(255,90,31,.4);
+    flex: none;
+  }
+
+  .hero-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.1); }
+  .hero-stat {
+    padding: 16px 12px; border: 1px solid rgba(255,255,255,.08); border-radius: 14px;
+    background: linear-gradient(140deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06); backdrop-filter: blur(8px);
+  }
+  .hero-stat .num { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 26px; color: var(--white); line-height: 1; }
+  .hero-stat .lbl { font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .08em; color: var(--fog); text-transform: uppercase; margin-top: 7px; }
+
+  .hero-visual { position: relative; }
+  .hero-visual-card {
+    position: relative; padding: 20px; border: 1px solid rgba(255,255,255,.11); border-radius: 24px;
+    background: linear-gradient(155deg, rgba(31,35,39,.95), rgba(17,19,21,.95));
+    box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.08); overflow: hidden; animation: floatCard 6s ease-in-out infinite;
+  }
+  .hero-visual-card::before {
+    content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,90,31,.16), transparent 42%, rgba(255,255,255,.04)); pointer-events: none;
+  }
+  .hero-visual-top {
+    display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.1);
+    font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--fog);
+    position: relative; z-index: 1;
+  }
+  .hero-visual-stage {
+    position: relative; margin-top: 18px; min-height: 400px; border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    padding: 18px;
+  }
+  .hero-visual-stage > * { position: relative; z-index: 2; }
+  .hero-photo {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;
+    border-radius: 16px; z-index: 0;
+  }
+  .hero-photo-overlay {
+    position: absolute; left: 18px; bottom: 18px; z-index: 2; display: flex; flex-direction: column; gap: 8px;
+    max-width: min(280px, 70%); padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14);
+    background: rgba(7,9,12,.72); backdrop-filter: blur(10px); box-shadow: 0 16px 32px rgba(0,0,0,.24);
+  }
+  .hero-photo-badge {
+    display: inline-flex; align-self: flex-start; padding: 6px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.08); font-family: "Space Mono", monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold);
+  }
+  .hero-photo-overlay strong { font-size: 14px; color: var(--white); line-height: 1.3; }
+  .hero-visual-stage::before {
+    content: ""; position: absolute; inset: 0; background:
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 32px 32px; opacity: .5;
+  }
+  .hero-visual-stage::after {
+    content: ""; position: absolute; inset: 14px; border: 1px dashed rgba(255,90,31,.2); border-radius: 16px;
+  }
+  .hero-machine {
+    position: absolute; left: 24px; bottom: 52px; width: 46%; height: 38%; border-radius: 18px;
+    background: linear-gradient(135deg, rgba(255,255,255,.12), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.14); box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .hero-machine::before {
+    content: ""; position: absolute; top: 16px; left: 20px; right: 20px; height: 18px; border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255,90,31,.85), rgba(255,90,31,.25));
+  }
+  .hero-machine::after {
+    content: ""; position: absolute; inset: 50px 18px 18px 18px; border-radius: 12px;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,.12) 0 8px, transparent 8px 18px);
+  }
+  .hero-conveyor {
+    position: absolute; left: 20px; right: 20px; bottom: 24px; height: 16px; border-radius: 999px;
+    background: linear-gradient(90deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .hero-conveyor::before {
+    content: ""; position: absolute; inset: 4px 6px; border-radius: 999px; background: repeating-linear-gradient(90deg, var(--cure) 0 14px, transparent 14px 24px);
+    opacity: .6;
+  }
+  .hero-gun {
+    position: absolute; right: 30px; top: 88px; width: 92px; height: 132px; border-radius: 20px 20px 24px 24px;
+    background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.04));
+    border: 1px solid rgba(255,255,255,.14); box-shadow: inset 0 1px 0 rgba(255,255,255,.11);
+    display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px;
+    font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--mist);
+  }
+  .hero-gun::before {
+    content: ""; position: absolute; top: 18px; left: 18px; width: 38px; height: 38px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,90,31,.7), rgba(255,90,31,.18));
+    border: 1px solid rgba(255,255,255,.16);
+  }
+  .hero-plate {
+    position: absolute; right: 26px; bottom: 72px; padding: 14px 16px; border-radius: 14px;
+    background: rgba(9,10,12,.66); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 12px 28px rgba(0,0,0,.28);
+    min-width: 180px;
+  }
+  .hero-plate span { display: block; font-family: "Space Mono", monospace; font-size: 9px; letter-spacing: .09em; text-transform: uppercase; color: var(--fog); }
+  .hero-plate strong { display: block; margin-top: 6px; font-size: 14px; color: var(--white); }
+  .hero-product {
+    position: absolute; width: 120px; height: 82px; border-radius: 14px; border: 1px solid rgba(255,255,255,.14);
+    background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.03));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .hero-product::before, .hero-product::after {
+    content: ""; position: absolute; inset: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.1);
+  }
+  .hero-product::after { inset: 28px 12px 12px 12px; border-color: rgba(255,90,31,.25); }
+  .hero-product-a { left: 36px; top: 44px; }
+  .hero-product-b { left: 178px; top: 78px; transform: rotate(-6deg); }
+  .hero-label {
+    position: absolute; font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--fog);
+    padding: 7px 10px; border-radius: 999px; background: rgba(9,10,12,.62); border: 1px solid rgba(255,255,255,.1);
+    backdrop-filter: blur(8px);
+  }
+  .hero-label-top { top: 20px; left: 24px; }
+  .hero-label-right { top: 120px; right: 154px; }
+  .hero-label-bottom { bottom: 54px; left: 168px; }
+
+  @keyframes floatGlow { 0%, 100% { transform: translate3d(0,0,0); opacity: .95; } 50% { transform: translate3d(10px,-12px,0); opacity: 1; } }
+  @keyframes floatCard { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  @keyframes gridMove { from { transform: translateY(0); } to { transform: translateY(-32px); } }
+  @keyframes pulseGlow { from { opacity: .8; } to { opacity: 1; } }
+  @keyframes buttonShine { 0% { transform: translateX(-180%) rotate(20deg); } 100% { transform: translateX(220%) rotate(20deg); } }
+
+  /* ---------- SECTION SHELL ---------- */
+  section { position: relative; }
+  .sec-pad { padding: 96px 0; }
+  .sec-head { max-width: 640px; margin-bottom: 52px; }
+  .sec-head h2 { font-size: clamp(30px, 4vw, 50px); font-weight: 800; margin-top: 18px; letter-spacing: -.03em; background: linear-gradient(180deg, #fff 30%, #aeb4ba); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .sec-head p { margin-top: 18px; color: var(--fog); font-size: 17px; }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; overflow: hidden; background: var(--steel); }
+  .marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 28s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-track span { font-family: "Archivo", sans-serif; font-weight: 700; font-size: 15px; letter-spacing: .02em; color: var(--fog); text-transform: uppercase; display: inline-flex; align-items: center; gap: 56px; white-space: nowrap; }
+  .marquee-track span::after { content: "▪"; color: var(--cure); font-size: 9px; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ---------- SERVICES ---------- */
+  .services-upgrade { position: relative; }
+  .services-upgrade::before {
+    content: ""; position: absolute; inset: 0 8% auto auto; height: 56%; background: radial-gradient(circle, rgba(255,90,31,.12), transparent 68%); pointer-events: none; z-index: 0;
+  }
+  .svc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; position: relative; z-index: 1; }
+  .svc {
+    background: linear-gradient(145deg, rgba(31,35,39,.95), rgba(17,19,21,.94)); border: 1px solid rgba(255,255,255,.08); border-radius: 20px; padding: 28px 28px 24px;
+    transition: border-color .35s, transform .35s var(--ease), box-shadow .35s, background .35s; position: relative; overflow: hidden; isolation: isolate;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .svc::before {
+    content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, rgba(255,90,31,.12), transparent 48%, rgba(255,255,255,.06)); opacity: 0; transition: opacity .35s; pointer-events: none;
+  }
+  .svc::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--cure), transparent); transform: scaleX(0); transform-origin: center; transition: transform .35s var(--ease);
+  }
+  .svc:hover { transform: translateY(-8px); border-color: rgba(255,150,100,.34); box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.08); }
+  .svc:hover::before { opacity: 1; }
+  .svc:hover::after { transform: scaleX(1); }
+  .svc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .svc-icon {
+    width: 44px; height: 44px; border-radius: 12px; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(255,90,31,.18), rgba(255,255,255,.04));
+    display: flex; align-items: center; justify-content: center; color: var(--cure); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); flex: none;
+  }
+  .svc-icon svg { width: 20px; height: 20px; transition: transform .35s var(--ease); }
+  .svc:hover .svc-icon svg { transform: translateY(-2px) scale(1.04); }
+  .svc-no { font-family: "Space Mono", monospace; font-size: 11px; color: var(--cure); letter-spacing: .16em; text-transform: uppercase; }
+  .svc h3 { font-size: 24px; font-weight: 700; margin: 16px 0 10px; }
+  .svc p { font-size: 15px; color: var(--fog); }
+  .svc-meta {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0 18px; padding: 14px; border: 1px solid rgba(255,255,255,.08); border-radius: 14px;
+    background: rgba(255,255,255,.025);
+  }
+  .svc-meta div { min-width: 0; }
+  .svc-meta span {
+    display: block; font-family: "Space Mono", monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: var(--cure); margin-bottom: 6px;
+  }
+  .svc-meta p { font-size: 13px; color: var(--mist); line-height: 1.5; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .svc-tags span {
+    font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.1); color: var(--mist); background: rgba(255,255,255,.03);
+  }
+  .svc-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-family: "Archivo", sans-serif; font-weight: 700; font-size: 13px; color: var(--white); letter-spacing: .02em; transition: color .25s, transform .25s; }
+  .svc-link span { transition: transform .25s var(--ease); display: inline-block; }
+  .svc:hover .svc-link { color: var(--cure-bright); }
+  .svc:hover .svc-link span { transform: translateX(4px); }
+
+  .svc-why {
+    margin-top: 32px; padding: 24px; border: 1px solid rgba(255,255,255,.08); border-radius: 24px; background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06); position: relative; overflow: hidden;
+  }
+  .svc-why::before { content: ""; position: absolute; inset: auto 0 0 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,90,31,.4), transparent); }
+  .svc-why-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 20px; }
+  .svc-why-head h3 { font-size: 20px; font-weight: 700; }
+  .svc-why-head p { font-size: 14px; color: var(--fog); max-width: 420px; }
+  .svc-why-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .svc-why-item {
+    padding: 18px; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; background: linear-gradient(150deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+  }
+  .svc-why-item:hover { transform: translateY(-4px); border-color: rgba(255,150,100,.32); box-shadow: 0 16px 28px rgba(0,0,0,.28); }
+  .svc-why-icon {
+    width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--cure); background: rgba(255,90,31,.12);
+    border: 1px solid rgba(255,255,255,.08); margin-bottom: 12px;
+  }
+  .svc-why-icon svg { width: 18px; height: 18px; transition: transform .35s var(--ease); }
+  .svc-why-item:hover .svc-why-icon svg { transform: scale(1.08); }
+  .svc-why-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .svc-why-item p { font-size: 13px; color: var(--fog); }
+
+  /* ---------- FACILITY SHOWCASE ---------- */
+  .facility-section { position: relative; padding-top: 10px; }
+  .facility-shell {
+    border: 1px solid rgba(255,255,255,.08); border-radius: 28px; padding: 28px; position: relative; overflow: hidden;
+    background: linear-gradient(145deg, rgba(24,27,30,.96), rgba(13,15,17,.96)); box-shadow: var(--shadow), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .facility-shell::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; background:
+      linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px);
+    background-size: 34px 34px; opacity: .5;
+  }
+  .facility-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 24px; position: relative; z-index: 1; }
+  .facility-visual {
+    border: 1px solid rgba(255,255,255,.09); border-radius: 22px; padding: 18px; position: relative; overflow: hidden; min-height: 460px;
+    background: linear-gradient(145deg, rgba(255,255,255,.048), rgba(255,255,255,.018));
+  }
+  .facility-visual::before {
+    content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 20% 10%, rgba(255,90,31,.22), transparent 40%), radial-gradient(circle at 80% 20%, rgba(255,255,255,.1), transparent 35%);
+    pointer-events: none;
+    animation: facilityGlow 7s ease-in-out infinite alternate;
+  }
+  .facility-image {
+    position: relative; height: 100%; min-height: 420px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,.08);
+    background:
+      linear-gradient(140deg, rgba(255,255,255,.1), transparent 45%),
+      linear-gradient(180deg, rgba(10,12,14,.86), rgba(24,28,32,.95));
+  }
+  .facility-photo {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;
+    z-index: 0;
+  }
+  .facility-photo-overlay {
+    position: absolute; left: 18px; right: 18px; bottom: 18px; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 14px; border-radius: 14px; background: rgba(7,9,12,.72); border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(10px);
+  }
+  .facility-photo-overlay strong { font-size: 14px; color: var(--white); }
+  .facility-photo-overlay span {
+    font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold);
+  }
+  .facility-image::before {
+    content: ""; position: absolute; inset: 0; background:
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,.023) 1px, transparent 1px);
+    background-size: 32px 32px; opacity: .45;
+  }
+  .facility-image::after {
+    content: ""; position: absolute; inset: 18px; border: 1px dashed rgba(255,90,31,.2); border-radius: 16px;
+  }
+  .facility-frame {
+    position: absolute; inset: 32px 28px 90px 28px; border-radius: 20px; background: linear-gradient(140deg, rgba(255,255,255,.12), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .facility-frame::before {
+    content: ""; position: absolute; top: 16px; left: 18px; right: 18px; height: 18px; border-radius: 999px; background: linear-gradient(90deg, rgba(255,90,31,.9), rgba(255,90,31,.28));
+  }
+  .facility-frame::after {
+    content: ""; position: absolute; inset: 50px 18px 18px 18px; border-radius: 12px; background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  }
+  .facility-track {
+    position: absolute; left: 26px; right: 26px; bottom: 28px; height: 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.1);
+    background: linear-gradient(90deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+  }
+  .facility-track::before {
+    content: ""; position: absolute; inset: 4px 6px; border-radius: 999px; background: repeating-linear-gradient(90deg, var(--cure) 0 14px, transparent 14px 24px); opacity: .6;
+  }
+  .facility-product {
+    position: absolute; width: 128px; height: 86px; border-radius: 14px; border: 1px solid rgba(255,255,255,.12); background: linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.03));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .facility-product::before, .facility-product::after {
+    content: ""; position: absolute; inset: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.1);
+  }
+  .facility-product::after { inset: 28px 12px 12px 12px; border-color: rgba(255,90,31,.28); }
+  .facility-product-a { left: 38px; top: 72px; }
+  .facility-product-b { right: 36px; top: 110px; transform: rotate(-6deg); }
+  .hotspot {
+    position: absolute; width: 18px; height: 18px; border: 0; border-radius: 50%; background: var(--cure); box-shadow: 0 0 0 0 rgba(255,90,31,.4); cursor: pointer;
+    animation: hotspotPulse 2.2s ease-out infinite; transition: transform .25s var(--ease);
+  }
+  .hotspot:hover, .hotspot:focus-visible { transform: scale(1.12); }
+  .hotspot::before {
+    content: ""; position: absolute; inset: -6px; border: 1px solid rgba(255,90,31,.34); border-radius: 50%;
+  }
+  .hotspot-label {
+    position: absolute; top: -8px; left: 24px; padding: 8px 10px; border-radius: 999px; background: rgba(8,10,12,.75); color: var(--white);
+    font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; border: 1px solid rgba(255,255,255,.1);
+    opacity: 0; transform: translateY(6px); transition: opacity .25s, transform .25s; pointer-events: none;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  .hotspot:hover .hotspot-label, .hotspot:focus-visible .hotspot-label { opacity: 1; transform: translateY(0); }
+  .hotspot-a { top: 92px; left: 88px; }
+  .hotspot-b { top: 176px; left: 206px; animation-delay: .6s; }
+  .hotspot-c { top: 138px; right: 120px; animation-delay: .9s; }
+  .hotspot-d { top: 248px; left: 154px; animation-delay: .3s; }
+  .hotspot-e { top: 264px; right: 152px; animation-delay: .8s; }
+  .hotspot-f { bottom: 118px; left: 48%; animation-delay: 1.1s; }
+  .facility-info { display: flex; flex-direction: column; gap: 14px; }
+  .facility-card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .facility-card {
+    padding: 18px; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06); position: relative; overflow: hidden; transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+  }
+  .facility-card::before { content: ""; position: absolute; top: 0; left: 0; width: 44px; height: 2px; background: linear-gradient(90deg, var(--cure), transparent); }
+  .facility-card:hover { transform: translateY(-4px); border-color: rgba(255,150,100,.32); box-shadow: 0 16px 28px rgba(0,0,0,.28); }
+  .facility-card-icon {
+    width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--cure); background: rgba(255,90,31,.12); border: 1px solid rgba(255,255,255,.08); margin-bottom: 10px;
+  }
+  .facility-card-icon svg { width: 18px; height: 18px; }
+  .facility-card h4 { font-size: 16px; margin-bottom: 6px; font-weight: 700; }
+  .facility-card p { font-size: 13px; color: var(--fog); line-height: 1.58; }
+  .facility-highlights { margin-top: 20px; }
+  .facility-highlights-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 16px; }
+  .facility-highlights-head h3 { font-size: 20px; font-weight: 700; }
+  .facility-highlights-head p { font-size: 14px; color: var(--fog); max-width: 420px; }
+  .facility-stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: 24px; position: relative; z-index: 1; }
+  .facility-stat {
+    padding: 18px 14px; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06); text-align: center; min-height: 116px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .facility-stat .num { font-family: "Archivo", sans-serif; font-size: 24px; font-weight: 800; color: var(--white); }
+  .facility-stat .lbl { font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .08em; color: var(--fog); text-transform: uppercase; margin-top: 7px; }
+  .facility-industries { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 20px; position: relative; z-index: 1; }
+  .industry-card {
+    padding: 16px; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06); transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+  }
+  .industry-card:hover { transform: translateY(-4px); border-color: rgba(255,150,100,.32); box-shadow: 0 16px 28px rgba(0,0,0,.28); }
+  .industry-icon {
+    width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--cure); background: rgba(255,90,31,.12); border: 1px solid rgba(255,255,255,.08); margin-bottom: 12px;
+  }
+  .industry-icon svg { width: 18px; height: 18px; }
+  .industry-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .industry-card p { font-size: 12px; color: var(--fog); line-height: 1.6; }
+
+  @keyframes facilityGlow { from { opacity: .8; } to { opacity: 1; } }
+  @keyframes hotspotPulse { 0% { box-shadow: 0 0 0 0 rgba(255,90,31,.35); } 70% { box-shadow: 0 0 0 10px rgba(255,90,31,0); } 100% { box-shadow: 0 0 0 0 rgba(255,90,31,0); } }
+
+  /* ---------- PROCESS ---------- */
+  .process { background: var(--steel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .proc {
+    padding: 28px 24px; position: relative; border: 1px solid rgba(255,255,255,.08); border-radius: 18px;
+    background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.05); overflow: hidden; transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+  }
+  .proc::before {
+    content: ""; position: absolute; inset: 0 auto auto 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--cure), transparent);
+    transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+  }
+  .proc:hover { transform: translateY(-6px); border-color: rgba(255,150,100,.3); box-shadow: 0 16px 32px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.06); }
+  .proc:hover::before { transform: scaleX(1); }
+  .proc-bar { position: absolute; top: -2px; left: 0; width: 0; height: 2px; background: var(--cure); transition: width 1s var(--ease); }
+  .proc.in .proc-bar { width: 64px; }
+  .proc-no {
+    display: inline-flex; align-items: center; gap: 8px; font-family: "Archivo", sans-serif; font-weight: 800; font-size: 13px; color: var(--cure);
+    font-feature-settings: "tnum"; padding: 7px 10px; border: 1px solid rgba(255,90,31,.16); border-radius: 999px; background: rgba(255,90,31,.08);
+  }
+  .proc-no::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--cure); box-shadow: 0 0 8px rgba(255,90,31,.35); }
+  .proc h3 { font-size: 21px; font-weight: 700; margin: 16px 0 10px; }
+  .proc p { font-size: 14px; color: var(--fog); line-height: 1.7; margin-top: 4px; }
+
+  /* ---------- FINISHES (signature wall) ---------- */
+  .finish-wall { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .fchip {
+    aspect-ratio: 4/3.2; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.1); transition: transform .3s var(--ease), box-shadow .3s;
+  }
+  .fchip::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 34%; background: linear-gradient(rgba(255,255,255,.3), transparent); }
+  .fchip:hover { transform: translateY(-8px); box-shadow: 0 28px 52px -12px rgba(0,0,0,.68); }
+  .fchip .gloss { font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; position: relative; align-self: flex-end; opacity: .85; }
+  .fchip .meta { position: relative; }
+  .fchip .meta code { font-family: "Space Mono", monospace; font-weight: 700; font-size: 13px; display: block; }
+  .fchip .meta span { font-size: 13px; font-weight: 600; }
+  .fchip.dark, .fchip.dark code { color: #fff; }
+  .fchip.dark span { color: rgba(255,255,255,.8); }
+  .fchip.light, .fchip.light code { color: #141414; }
+  .fchip.light span { color: rgba(0,0,0,.65); }
+  .fchip-structure-orange { background: #e98400; }
+  .fchip-structure-red { background: #c83d34; }
+  .fchip-structure-green { background: #60885c; }
+  .fchip-structure-blue { background: #249ce1; }
+  .fchip-metallic-gold { background: #cfad40; }
+  .fchip-metallic-silver { background: #9ba09c; }
+  .fchip-antique-copper { background: #643c28; }
+  .fchip-metallic-bronze { background: #251710; }
+  .finish-cta { margin-top: 34px; }
+
+  /* ---------- WHY ---------- */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .why-list { display: flex; flex-direction: column; gap: 8px; }
+  .why-item {
+    padding: 20px 22px; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; display: flex; gap: 20px; align-items: flex-start;
+    background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+    transition: transform .35s var(--ease), border-color .35s, box-shadow .35s, background .35s;
+  }
+  .why-item:hover { transform: translateY(-3px); border-color: rgba(255,150,100,.28); box-shadow: 0 14px 24px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.06); }
+  .why-ic { width: 42px; height: 42px; border-radius: 9px; background: rgba(255,90,31,.12); border: 1px solid rgba(255,255,255,.08); display: flex; align-items: center; justify-content: center; flex: none; color: var(--cure); }
+  .why-ic svg { width: 20px; height: 20px; }
+  .why-item h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; }
+  .why-item p { font-size: 14px; color: var(--fog); line-height: 1.7; }
+  .why-card { background: linear-gradient(160deg, var(--zinc), var(--steel)); border: 1px solid var(--line); border-radius: 18px; padding: 38px; position: sticky; top: 100px; box-shadow: var(--shadow), inset 0 1px 0 var(--line-hl); }
+  .why-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(255,90,31,.12), transparent 42%, rgba(255,255,255,.04)); pointer-events: none; }
+  .why-card .big { font-family: "Archivo", sans-serif; font-weight: 900; font-size: 64px; color: var(--white); line-height: 1; position: relative; z-index: 1; }
+  .why-card .big em { color: var(--cure); font-style: normal; }
+  .why-card .cap { color: var(--mist); margin: 14px 0 26px; font-size: 16px; position: relative; z-index: 1; }
+  .why-bars { display: flex; flex-direction: column; gap: 18px; position: relative; z-index: 1; }
+  .why-bar .row { display: flex; justify-content: space-between; font-family: "Space Mono", monospace; font-size: 12px; color: var(--mist); margin-bottom: 7px; text-transform: uppercase; letter-spacing: .05em; }
+  .why-bar .track { height: 6px; background: var(--ink); border-radius: 4px; overflow: hidden; }
+  .why-bar .fill { height: 100%; background: linear-gradient(90deg, var(--cure), var(--cure-deep)); border-radius: 4px; width: 0; transition: width 1.2s var(--ease); }
+
+  /* ---------- QUOTE BAND ---------- */
+  .band { background: linear-gradient(135deg, var(--cure-bright), var(--cure-deep)); position: relative; overflow: hidden; box-shadow: inset 0 1px 0 rgba(255,255,255,.25); }
+  .band-inner { padding: 72px 0; display: flex; align-items: center; justify-content: space-between; gap: 30px; flex-wrap: wrap; position: relative; z-index: 2; }
+  .band h2 { color: #1a0c04; font-size: clamp(28px, 3.6vw, 44px); font-weight: 900; max-width: 620px; }
+  .band p { color: rgba(26,12,4,.78); margin-top: 12px; font-size: 16px; font-weight: 500; }
+  .band .btn-dark { background: #1a0c04; color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+  .band .btn-dark:hover { background: #000; transform: translateY(-2px); }
+  .band-stripes { position: absolute; inset: 0; opacity: .12; background: repeating-linear-gradient(45deg, #000 0 2px, transparent 2px 22px); }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .contact-side {
+    padding: 24px 24px 10px; border: 1px solid rgba(255,255,255,.08); border-radius: 20px; background: linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .info-item { padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08); }
+  .info-item:first-of-type { border-top: none; padding-top: 0; }
+  .info-item .k { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--cure); margin-bottom: 7px; }
+  .info-item .v { font-size: 19px; color: var(--white); font-weight: 600; font-family: "Archivo", sans-serif; }
+  .info-item .v a:hover { color: var(--cure); }
+  .info-item .sub { font-size: 14px; color: var(--fog); margin-top: 3px; }
+
+  form { background: linear-gradient(170deg, var(--zinc), var(--steel)); border: 1px solid var(--line); border-radius: 16px; padding: 32px; box-shadow: var(--shadow), inset 0 1px 0 var(--line-hl); }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--fog); margin-bottom: 8px; }
+  .field input, .field select, .field textarea {
+    width: 100%; background: var(--ink); border: 1px solid var(--line); border-radius: 9px; padding: 13px 14px;
+    color: var(--white); font-family: "Inter", sans-serif; font-size: 15px; transition: border-color .2s, box-shadow .2s;
+  }
+  .field textarea { resize: vertical; min-height: 100px; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--cure); box-shadow: 0 0 0 3px rgba(255,90,31,.15); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  form .btn-primary { width: 100%; justify-content: center; margin-top: 6px; padding: 15px; }
+  .form-note { font-size: 12px; color: var(--fog); margin-top: 14px; text-align: center; font-family: "Space Mono", monospace; }
+
+  /* ---------- FOOTER ---------- */
+  footer { border-top: 1px solid var(--line); padding: 54px 0 30px; background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 44%); }
+  .foot-top {
+    display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; padding: 24px 24px 28px; border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .foot-blurb { max-width: 320px; color: var(--fog); font-size: 14px; margin-top: 16px; }
+  .foot-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+  .foot-col h4 { font-family: "Space Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--fog); margin-bottom: 16px; }
+  .foot-col a { display: block; font-size: 14px; color: var(--mist); margin-bottom: 11px; transition: color .2s, transform .2s; }
+  .foot-col a:hover { color: var(--cure); transform: translateX(2px); }
+  .foot-bot { display: flex; justify-content: space-between; align-items: center; padding-top: 26px; flex-wrap: wrap; gap: 14px; }
+  .foot-bot p { font-family: "Space Mono", monospace; font-size: 12px; color: var(--fog); }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+  .reveal.in { opacity: 1; transform: none; }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-links.open { display: flex; position: absolute; top: 74px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--steel); border-bottom: 1px solid var(--line); padding: 12px 28px 22px; }
+    .nav-links.open a { padding: 13px 0; border-bottom: 1px solid var(--line); width: 100%; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-cta { flex-direction: column; align-items: flex-start; }
+    .svc-grid, .proc-grid, .finish-wall, .why-grid, .contact-grid { grid-template-columns: 1fr; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .svc-why-grid { grid-template-columns: repeat(2, 1fr); }
+    .facility-grid { grid-template-columns: 1fr; }
+    .facility-card-grid { grid-template-columns: 1fr 1fr; }
+    .facility-stats { grid-template-columns: repeat(3, 1fr); }
+    .facility-industries { grid-template-columns: repeat(2, 1fr); }
+    .proc-grid { gap: 0; }
+    .finish-wall { grid-template-columns: repeat(2, 1fr); }
+    .why-card { position: static; }
+  }
+  @media (max-width: 760px) {
+    .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .facility-visual { min-height: 360px; }
+    .facility-image { min-height: 320px; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 18px; }
+    .hero-meta { flex-wrap: wrap; gap: 22px; }
+    .hero-stats { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .finish-wall { grid-template-columns: 1fr 1fr; }
+    .svc-meta { grid-template-columns: 1fr; }
+    .svc-why-grid { grid-template-columns: 1fr; }
+    .svc-why-head { flex-direction: column; align-items: flex-start; }
+    .facility-card-grid, .facility-stats, .facility-industries { grid-template-columns: 1fr; }
+    .facility-highlights-head { flex-direction: column; align-items: flex-start; }
+    .nav .btn-primary { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <div class="brand-chip"></div>
+      <div>
+        <div class="brand-name">REAL <span>Powder Coating</span></div>
+        <div class="brand-sub">Finish · Cure · Protect</div>
+      </div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="gallery.html">Shades</a>
+      <a href="#why">Why us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary">Request a quote <span class="btn-arrow">→</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow hero-glow-b"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Electrostatic powder coating</span>
+      <h1>
+        <span class="line">Engineering-grade</span>
+        <span class="line">finishes for <em>industrial</em></span>
+        <span class="line">surfaces that endure.</span>
+      </h1>
+      <p class="hero-lead">From precision components to architectural metalwork, we blast, coat, and oven-cure every part to a factory-grade finish built for harsh environments, long life, and premium presentation.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get a free quote <span class="btn-arrow">→</span></a>
+        <a href="#finishes" class="btn btn-ghost">Explore finishes</a>
+      </div>
+      <div class="hero-badges" aria-label="Key quality benefits">
+        <div class="hero-badge"><span class="dot"></span>Factory grade finish</div>
+        <div class="hero-badge"><span class="dot"></span>Corrosion resistant</div>
+        <div class="hero-badge"><span class="dot"></span>Fast turnaround</div>
+        <div class="hero-badge"><span class="dot"></span>Quality assured</div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num stat-number" data-target="15" data-suffix="+">0</div><div class="lbl">Years experience</div></div>
+        <div class="hero-stat"><div class="num stat-number" data-target="10000" data-suffix="+">0</div><div class="lbl">Projects finished</div></div>
+        <div class="hero-stat"><div class="num stat-number" data-target="100" data-suffix="+">0</div><div class="lbl">RAL colours</div></div>
+        <div class="hero-stat"><div class="num stat-number" data-target="24" data-suffix="h">0</div><div class="lbl">Quote response</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal" aria-label="Industrial powder coating facility preview">
+      <div class="hero-visual-card">
+        <div class="hero-visual-top">
+          <span>Factory vision / 01</span>
+          <span>Powder line · A2</span>
+        </div>
+        <div class="hero-visual-stage">
+          <img class="hero-photo" src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80" alt="Factory powder coating line with coated metal parts" />
+          <div class="hero-label hero-label-top">Surface prep</div>
+          <div class="hero-label hero-label-right">Cure line</div>
+          <div class="hero-label hero-label-bottom">Powder booth</div>
+          <div class="hero-machine"></div>
+          <div class="hero-conveyor"></div>
+          <div class="hero-gun">Gun</div>
+          <div class="hero-product hero-product-a"></div>
+          <div class="hero-product hero-product-b"></div>
+          <div class="hero-plate">
+            <span>Electrostatic precision</span>
+            <strong>Premium industrial finish</strong>
+          </div>
+          <div class="hero-photo-overlay">
+            <span class="hero-photo-badge">Factory preview</span>
+            <strong>Ready for your real production photos</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Alloy wheels</span><span>Railings &amp; gates</span><span>Patio furniture</span><span>Motorcycle frames</span><span>Industrial racks</span><span>Trailer parts</span><span>Brake calipers</span><span>Architectural metal</span>
+    <span>Alloy wheels</span><span>Railings &amp; gates</span><span>Patio furniture</span><span>Motorcycle frames</span><span>Industrial racks</span><span>Trailer parts</span><span>Brake calipers</span><span>Architectural metal</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="sec-pad services-upgrade">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Capabilities</span>
+      <h2>Industrial finishing designed for demanding environments.</h2>
+      <p>Every coating system is engineered to deliver consistent performance, durable protection, and premium finish quality across automotive, architectural, and production applications.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="svc-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 8h8M8 12h5"/></svg></div>
+          <div class="svc-no">01 / Industrial Powder Coating</div>
+        </div>
+        <h3>Industrial Powder Coating</h3>
+        <p>High-performance electrostatic finishing for fabricated parts, enclosures, and assemblies requiring a hard, uniform protective shell.</p>
+        <div class="svc-meta">
+          <div><span>Applications</span><p>Panels, frames, machine components, OEM parts</p></div>
+          <div><span>Benefits</span><p>Impact resistance, low VOC, even coverage</p></div>
+          <div><span>Suitable Industries</span><p>Automotive, engineering, machinery</p></div>
+          <div><span>Finish Quality</span><p>Gloss, matt, textured, metallic</p></div>
+        </div>
+        <div class="svc-tags">
+          <span>Factory finish</span><span>Uniform film</span><span>Corrosion shield</span><span>Fast cure</span>
+        </div>
+        <a href="#contact" class="svc-link">Learn more <span>→</span></a>
+      </article>
+
+      <article class="svc reveal">
+        <div class="svc-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14M7 3v4m10-4v4M6 7v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7"/><path d="M9 12h6"/></svg></div>
+          <div class="svc-no">02 / Surface Preparation</div>
+        </div>
+        <h3>Surface Preparation</h3>
+        <p>Meticulous cleaning, degreasing, and profiling to create the ideal substrate before coating and curing.</p>
+        <div class="svc-meta">
+          <div><span>Applications</span><p>Pre-treatment for steel, aluminium, fabricated metal</p></div>
+          <div><span>Benefits</span><p>Better adhesion, cleaner finish, long service life</p></div>
+          <div><span>Suitable Industries</span><p>Architecture, electrical, fabrication</p></div>
+          <div><span>Finish Quality</span><p>Consistent base profile and smoothness</p></div>
+        </div>
+        <div class="svc-tags">
+          <span>Clean substrate</span><span>Adhesion ready</span><span>Profile control</span><span>Rust-free</span>
+        </div>
+        <a href="#contact" class="svc-link">Learn more <span>→</span></a>
+      </article>
+
+      <article class="svc reveal">
+        <div class="svc-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13a7 7 0 0 1 14 0"/><path d="M8 13c0-2.2 1.8-4 4-4s4 1.8 4 4"/><path d="M6 19h12"/></svg></div>
+          <div class="svc-no">03 / Sand Blasting</div>
+        </div>
+        <h3>Sand Blasting</h3>
+        <p>Precision abrasive blasting to remove old coatings, rust, and contaminants while preparing metal for durable bonding.</p>
+        <div class="svc-meta">
+          <div><span>Applications</span><p>Restorations, heavy-duty parts, weldments</p></div>
+          <div><span>Benefits</span><p>Clean profile, better coating grip, reduced defects</p></div>
+          <div><span>Suitable Industries</span><p>Restoration, industrial, offshore</p></div>
+          <div><span>Finish Quality</span><p>Uniform texture and finish readiness</p></div>
+        </div>
+        <div class="svc-tags">
+          <span>Rust removal</span><span>Scale clean</span><span>Surface profile</span><span>Prep control</span>
+        </div>
+        <a href="#contact" class="svc-link">Learn more <span>→</span></a>
+      </article>
+
+      <article class="svc reveal">
+        <div class="svc-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14M8 4v4m8-4v4M6 8v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+          <div class="svc-no">04 / Metal Pretreatment</div>
+        </div>
+        <h3>Metal Pretreatment</h3>
+        <p>Chemical conditioning and phosphate treatment that strengthen adhesion and guard against corrosion beneath the finish.</p>
+        <div class="svc-meta">
+          <div><span>Applications</span><p>Steel fabrication, aluminium trims, industrial components</p></div>
+          <div><span>Benefits</span><p>Enhanced durability, corrosion resistance, coating integrity</p></div>
+          <div><span>Suitable Industries</span><p>Electrical panels, outdoor fabrication</p></div>
+          <div><span>Finish Quality</span><p>Long-lasting bond with excellent consistency</p></div>
+        </div>
+        <div class="svc-tags">
+          <span>Corrosion guard</span><span>Phosphate prep</span><span>Adhesion boost</span><span>Weather ready</span>
+        </div>
+        <a href="#contact" class="svc-link">Learn more <span>→</span></a>
+      </article>
+
+      <article class="svc reveal">
+        <div class="svc-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <div class="svc-no">05 / Batch Production Coating</div>
+        </div>
+        <h3>Batch Production Coating</h3>
+        <p>Repeatable coating for OEM runs, fabricated lots, and operational programs where colour and film thickness must hold from first part to last.</p>
+        <div class="svc-meta">
+          <div><span>Applications</span><p>Production batches, racking, hardware, assemblies</p></div>
+          <div><span>Benefits</span><p>Consistent output, documented quality, reliable scheduling</p></div>
+          <div><span>Suitable Industries</span><p>OEM manufacturing, industrial supply</p></div>
+          <div><span>Finish Quality</span><p>Controlled thickness and repeatable colour</p></div>
+        </div>
+        <div class="svc-tags">
+          <span>Batch runs</span><span>QC tracking</span><span>Fast dispatch</span><span>Repeatable</span>
+        </div>
+        <a href="#contact" class="svc-link">Learn more <span>→</span></a>
+      </article>
+
+      <article class="svc reveal">
+        <div class="svc-top">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14"/><path d="M7 7v10a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7"/><path d="M10 11h4"/><path d="M10 15h2"/></svg></div>
+          <div class="svc-no">06 / Custom Colour Matching</div>
+        </div>
+        <h3>Custom Colour Matching</h3>
+        <p>Colour-specific finishing for brand systems, architectural palettes, and custom projects requiring exact visual consistency.</p>
+        <div class="svc-meta">
+          <div><span>Applications</span><p>Brand colours, project palettes, design-led parts</p></div>
+          <div><span>Benefits</span><p>Exact tone control, sample validation, premium finish</p></div>
+          <div><span>Suitable Industries</span><p>Architecture, furniture, luxury products</p></div>
+          <div><span>Finish Quality</span><p>Precise colour and surface character</p></div>
+        </div>
+        <div class="svc-tags">
+          <span>Sample match</span><span>Brand finish</span><span>RAL range</span><span>Special colour</span>
+        </div>
+        <a href="#contact" class="svc-link">Learn more <span>→</span></a>
+      </article>
+    </div>
+
+    <div class="svc-why reveal">
+      <div class="svc-why-head">
+        <h3>Why Our Process Delivers Better Results</h3>
+        <p>Every stage is controlled for adhesion, consistency, and long-term performance — from prep to cure.</p>
+      </div>
+      <div class="svc-why-grid">
+        <div class="svc-why-item">
+          <div class="svc-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M6 8l6-5 6 5"/><path d="M6 16l6 5 6-5"/></svg></div>
+          <h4>Uniform Finish</h4>
+          <p>Even film build and consistent surface character across every part and batch.</p>
+        </div>
+        <div class="svc-why-item">
+          <div class="svc-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 8 8 8 8s8-3 8-8V6z"/></svg></div>
+          <h4>Corrosion Protection</h4>
+          <p>Prepared surfaces and cured coatings resist rust, moisture, and outdoor exposure.</p>
+        </div>
+        <div class="svc-why-item">
+          <div class="svc-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16"/><path d="M8 7l-4 5 4 5"/><path d="M16 7l4 5-4 5"/></svg></div>
+          <h4>Chemical Resistance</h4>
+          <p>Durable finishes that stand up to cleaning, handling, and environmental exposure.</p>
+        </div>
+        <div class="svc-why-item">
+          <div class="svc-why-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 18V8"/><path d="M12 18V4"/><path d="M19 18v-6"/></svg></div>
+          <h4>Long Service Life</h4>
+          <p>Premium curing and controlled application provide lasting performance over time.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITY SHOWCASE -->
+<section class="facility-section sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Inside Our Manufacturing Facility</span>
+      <h2>Professional production, precision finishing, and controlled quality at every stage.</h2>
+      <p>Every component follows a disciplined manufacturing process using professional equipment, precise surface preparation, and documented inspection standards.</p>
+    </div>
+    <div class="facility-shell reveal">
+      <div class="facility-grid">
+        <div class="facility-visual reveal">
+          <div class="facility-image" aria-label="Factory image placeholder">
+            <img class="facility-photo" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1400&q=80" alt="Powder coating workshop with industrial equipment" />
+            <div class="facility-frame"></div>
+            <div class="facility-track"></div>
+            <div class="facility-product facility-product-a"></div>
+            <div class="facility-product facility-product-b"></div>
+            <button class="hotspot hotspot-a" type="button" aria-label="Surface Preparation">
+              <span class="hotspot-label">Surface Preparation</span>
+            </button>
+            <button class="hotspot hotspot-b" type="button" aria-label="Sand Blasting">
+              <span class="hotspot-label">Sand Blasting</span>
+            </button>
+            <button class="hotspot hotspot-c" type="button" aria-label="Powder Booth">
+              <span class="hotspot-label">Powder Booth</span>
+            </button>
+            <button class="hotspot hotspot-d" type="button" aria-label="Conveyor Line">
+              <span class="hotspot-label">Conveyor Line</span>
+            </button>
+            <button class="hotspot hotspot-e" type="button" aria-label="Oven Curing">
+              <span class="hotspot-label">Oven Curing</span>
+            </button>
+            <button class="hotspot hotspot-f" type="button" aria-label="Quality Inspection">
+              <span class="hotspot-label">Quality Inspection</span>
+            </button>
+            <div class="facility-photo-overlay">
+              <strong>Factory image placeholder</strong>
+              <span>Swap with your photo</span>
+            </div>
+          </div>
+        </div>
+        <div class="facility-info">
+          <div class="facility-card-grid">
+            <article class="facility-card reveal">
+              <div class="facility-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14M7 3v4m10-4v4M6 7v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7"/><path d="M9 12h6"/></svg></div>
+              <h4>Industrial Equipment</h4>
+              <p>Professional preparation and finishing stations support consistent processing from first stage to final inspection.</p>
+            </article>
+            <article class="facility-card reveal">
+              <div class="facility-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14M7 5v3m10-3v3M6 8v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+              <h4>Electrostatic Powder Guns</h4>
+              <p>Controlled application ensures even coverage, wraparound consistency, and premium film build on complex profiles.</p>
+            </article>
+            <article class="facility-card reveal">
+              <div class="facility-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M7 4v4m10-4v4M6 8v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M9 13h6"/></svg></div>
+              <h4>Temperature Controlled Ovens</h4>
+              <p>Precision curing profiles deliver repeatable hardness, durability, and finish performance throughout the batch.</p>
+            </article>
+            <article class="facility-card reveal">
+              <div class="facility-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/></svg></div>
+              <h4>Batch Production Capacity</h4>
+              <p>Scalable workflow supports both one-off projects and production-ready runs with consistent scheduling and output.</p>
+            </article>
+            <article class="facility-card reveal">
+              <div class="facility-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13a7 7 0 0 1 14 0"/><path d="M8 13c0-2.2 1.8-4 4-4s4 1.8 4 4"/><path d="M6 19h12"/></svg></div>
+              <h4>Quality Inspection</h4>
+              <p>Visual and dimensional checks are built into the workflow to preserve finish quality and customer confidence.</p>
+            </article>
+            <article class="facility-card reveal">
+              <div class="facility-card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg></div>
+              <h4>Fast Turnaround</h4>
+              <p>Clear scheduling and efficient production planning help keep delivery timelines reliable and transparent.</p>
+            </article>
+          </div>
+          <div class="facility-highlights">
+            <div class="facility-highlights-head reveal">
+              <h3>Manufacturing Highlights</h3>
+              <p>Professional systems, measured controls, and consistent handling help produce premium industrial results.</p>
+            </div>
+            <div class="facility-stats">
+              <div class="facility-stat reveal"><div class="num stat-number" data-target="15" data-suffix="+">0</div><div class="lbl">Years experience</div></div>
+              <div class="facility-stat reveal"><div class="num stat-number" data-target="10000" data-suffix="+">0</div><div class="lbl">Projects completed</div></div>
+              <div class="facility-stat reveal"><div class="num stat-number" data-target="100" data-suffix="+">0</div><div class="lbl">RAL colours</div></div>
+              <div class="facility-stat reveal"><div class="num stat-number" data-target="98" data-suffix="%">0</div><div class="lbl">Customer satisfaction</div></div>
+              <div class="facility-stat reveal"><div class="num stat-number" data-target="24" data-suffix="h">0</div><div class="lbl">Average quote time</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="facility-industries">
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14M8 4v3m8-3v3M6 7v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7"/></svg></div>
+          <h4>Automotive</h4>
+          <p>Wheels, trim, and vehicle components.</p>
+        </article>
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V8l8-4 8 4v10"/><path d="M8 10h8"/></svg></div>
+          <h4>Engineering</h4>
+          <p>Precision metalwork and functional assemblies.</p>
+        </article>
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8"/><path d="M8 13h5"/></svg></div>
+          <h4>Electrical</h4>
+          <p>Panels, enclosures, and electrical hardware.</p>
+        </article>
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 18V7l7-3 7 3v11"/><path d="M9 18v-4h6v4"/></svg></div>
+          <h4>Furniture</h4>
+          <p>Frames, fittings, and decorative metal pieces.</p>
+        </article>
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V8l8-4 8 4v12"/><path d="M8 12h8"/></svg></div>
+          <h4>Architectural</h4>
+          <p>Railings, gates, fixtures, and exterior features.</p>
+        </article>
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14M8 4v3m8-3v3M6 7v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7"/><path d="M9 12h6"/></svg></div>
+          <h4>OEM Manufacturing</h4>
+          <p>Repeatable runs for industrial supply and production.</p>
+        </article>
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 18V9l7-4 7 4v9"/><path d="M9 18v-5h6v5"/></svg></div>
+          <h4>Agriculture</h4>
+          <p>Durable parts for rural and equipment applications.</p>
+        </article>
+        <article class="industry-card reveal">
+          <div class="industry-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 10h8"/><path d="M8 14h5"/></svg></div>
+          <h4>Industrial Equipment</h4>
+          <p>Robust finishes for machinery and heavy equipment.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="process sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it's done</span>
+      <h2>Four stages. No shortcuts.</h2>
+      <p>Powder coat is only as good as the prep beneath it. Each part moves through every stage in order — that's why our finish holds.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="proc-bar"></div><div class="proc-no">STAGE 01</div><h3>Strip &amp; blast</h3><p>Old coatings, rust and mill scale are media-blasted back to clean, profiled bare metal.</p></div>
+      <div class="proc reveal"><div class="proc-bar"></div><div class="proc-no">STAGE 02</div><h3>Pretreat</h3><p>A chemical wash and phosphate treatment etch the surface and lock out corrosion under the coat.</p></div>
+      <div class="proc reveal"><div class="proc-bar"></div><div class="proc-no">STAGE 03</div><h3>Electrostatic spray</h3><p>Charged powder is applied to grounded parts for an even, wrap-around coat with no runs or drips.</p></div>
+      <div class="proc reveal"><div class="proc-bar"></div><div class="proc-no">STAGE 04</div><h3>Oven cure</h3><p>Parts bake at 180–200°C so the powder flows and cross-links into one continuous, impact-hard shell.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINISHES (signature wall) -->
+<section id="finishes" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Finish library</span>
+      <h2>Structure, texture, metallic, antique.</h2>
+      <p>A few of our standard shades — the full range runs to 100+ colors across every finish family. Bring a sample and we'll match it.</p>
+    </div>
+    <div class="finish-wall">
+      <div class="fchip light reveal fchip-structure-orange"><span class="gloss">Structure</span><div class="meta"><code>ST3117-HB</code><span>Deep Orange</span></div></div>
+      <div class="fchip dark reveal fchip-structure-red"><span class="gloss">Structure</span><div class="meta"><code>ST3150-HB</code><span>Signal Red</span></div></div>
+      <div class="fchip dark reveal fchip-structure-green"><span class="gloss">Structure</span><div class="meta"><code>ST3048-HB</code><span>Machine Green</span></div></div>
+      <div class="fchip dark reveal fchip-structure-blue"><span class="gloss">Structure</span><div class="meta"><code>ST3121-HB</code><span>Deep Blue</span></div></div>
+      <div class="fchip light reveal fchip-metallic-gold"><span class="gloss">Metallic</span><div class="meta"><code>SP7161-HB</code><span>Pale Gold</span></div></div>
+      <div class="fchip light reveal fchip-metallic-silver"><span class="gloss">Metallic</span><div class="meta"><code>SP7151-HB</code><span>Special Silver</span></div></div>
+      <div class="fchip dark reveal fchip-antique-copper"><span class="gloss">Antique</span><div class="meta"><code>AT7120-HB</code><span>Antique Copper</span></div></div>
+      <div class="fchip dark reveal fchip-metallic-bronze"><span class="gloss">Metallic</span><div class="meta"><code>SM1617-PP</code><span>Anodic Bronze</span></div></div>
+    </div>
+    <div class="reveal finish-cta">
+      <a href="gallery.html" class="btn btn-ghost">View the full shade library — 100+ colors <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" class="process sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why Real</span>
+      <h2>Paint covers metal. Powder protects it.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item reveal">
+          <div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 8 8 8 8s8-3 8-8V6z"/></svg></div>
+          <div><h3>Tougher than paint</h3><p>A cured powder shell resists chips, chemicals, UV and corrosion far longer than wet paint — no primer-and-topcoat peeling.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><h3>Fast, honest turnaround</h3><p>Most jobs are back in your hands in 3–5 working days, quoted up front with no surprise add-ons.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <div><h3>Consistent, measured film</h3><p>We check film thickness and cure on every batch, so color and durability are the same on part one and part one hundred.</p></div>
+        </div>
+        <div class="why-item reveal">
+          <div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+          <div><h3>Cleaner process</h3><p>Powder uses no solvents and reclaims overspray — a lower-VOC finish that's better for your parts and the shop floor.</p></div>
+        </div>
+      </div>
+      <div class="why-card reveal">
+        <div class="big">15<em>yr</em></div>
+        <div class="cap">Typical service life of a properly cured powder finish on protected metal.</div>
+        <div class="why-bars">
+          <div class="why-bar"><div class="row"><span>Durability</span><span>vs. paint</span></div><div class="track"><div class="fill" data-w="95%"></div></div></div>
+          <div class="why-bar"><div class="row"><span>Corrosion resistance</span><span></span></div><div class="track"><div class="fill" data-w="90%"></div></div></div>
+          <div class="why-bar"><div class="row"><span>Color retention</span><span></span></div><div class="track"><div class="fill" data-w="88%"></div></div></div>
+          <div class="why-bar"><div class="row"><span>Eco / low-VOC</span><span></span></div><div class="track"><div class="fill" data-w="92%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BAND -->
+<section class="band">
+  <div class="band-stripes"></div>
+  <div class="wrap band-inner">
+    <div>
+      <h2>Got parts that need a finish? Let's quote it.</h2>
+      <p>Send a photo and a quick description — we'll come back with a price and a timeline.</p>
+    </div>
+    <a href="#contact" class="btn btn-dark">Start your quote <span class="btn-arrow">→</span></a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec-pad">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Tell us what you're coating.</h2>
+      <p>Drop the details below or call the shop directly. Walk-ins welcome during business hours.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-side reveal">
+        <div class="info-item">
+          <div class="k">Call the shop</div>
+          <div class="v"><a href="tel:+919898606618">+91 98986 06618</a></div>
+          <div class="sub">Mon–Sat, 9am – 7pm</div>
+        </div>
+        <div class="info-item">
+          <div class="k">Email</div>
+          <div class="v"><a href="mailto:realpowdercoating1@gmail.com">realpowdercoating1@gmail.com</a></div>
+          <div class="sub">Quotes answered within 1 business day</div>
+        </div>
+        <div class="info-item">
+          <div class="k">Visit / drop off</div>
+          <div class="v">C-8/3, Road No. 2, Ajwa Rd</div>
+          <div class="sub">Sardar Estate, Vadodara, Gujarat 390019</div>
+        </div>
+        <div class="info-item">
+          <div class="k">Hours</div>
+          <div class="v">Mon – Sat · 9–7</div>
+          <div class="sub">Sunday by appointment</div>
+        </div>
+      </div>
+
+      <form class="reveal" id="quoteForm" onsubmit="return submitQuote(event)">
+        <!-- Web3Forms access key for "Website Quote Requests" → realpowdercoating1@gmail.com -->
+        <input type="hidden" name="access_key" value="a025791e-32c3-483b-bbf4-d280b7397ee7" />
+        <input type="hidden" name="subject" value="New quote request — Real Powder Coating" />
+        <input type="hidden" name="from_name" value="Real Powder Coating website" />
+        <input type="checkbox" name="botcheck" tabindex="-1" class="sr-only" aria-hidden="true" />
+        <div class="field-row">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Jordan Smith" /></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(000) 000-0000" /></div>
+        </div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@email.com" /></div>
+        <div class="field-row">
+          <div class="field">
+            <label for="service">What's it for?</label>
+            <select id="service" name="service">
+              <option>Automotive &amp; moto</option>
+              <option>Architectural &amp; fabrication</option>
+              <option>Furniture &amp; residential</option>
+              <option>Industrial &amp; production</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field"><label for="color">Color / shade code</label><input id="color" name="color" type="text" placeholder="e.g. Signal Red ST3150-HB" /></div>
+        </div>
+        <div class="field"><label for="msg">Details</label><textarea id="msg" name="msg" placeholder="How many parts, rough sizes, timeline..."></textarea></div>
+        <button type="submit" class="btn btn-primary">Send quote request <span class="btn-arrow">→</span></button>
+        <div class="form-note" id="formNote">// We'll reply with a price &amp; turnaround</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="#top" class="brand">
+          <div class="brand-chip"></div>
+          <div>
+            <div class="brand-name">REAL <span>Powder Coating</span></div>
+            <div class="brand-sub">Finish · Cure · Protect</div>
+          </div>
+        </a>
+        <p class="foot-blurb">Durable, oven-cured powder coat finishes for automotive, architectural, and industrial metalwork.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Services</h4>
+          <a href="#services">Automotive &amp; moto</a>
+          <a href="#services">Architectural</a>
+          <a href="#services">Furniture</a>
+          <a href="#services">Industrial</a>
+        </div>
+        <div class="foot-col">
+          <h4>Company</h4>
+          <a href="#process">Process</a>
+          <a href="gallery.html">Shades</a>
+          <a href="#why">Why us</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h4>Get a quote</h4>
+          <a href="tel:+919898606618">+91 98986 06618</a>
+          <a href="mailto:realpowdercoating1@gmail.com">Email us</a>
+          <a href="#contact">Quote form</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p>© <span id="year"></span> Real Powder Coating. All rights reserved.</p>
+      <p>Built to last. Coated to match.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const header = document.querySelector('header');
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+
+  const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 10);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  if (toggle && links) {
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const target = entry.target;
+      target.classList.add('in');
+      target.querySelectorAll?.('.fill').forEach(fill => {
+        fill.style.width = fill.dataset.w;
+      });
+      target.querySelectorAll?.('.stat-number').forEach(counter => animateCounter(counter));
+      io.unobserve(target);
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal, .proc, .why-card').forEach(el => io.observe(el));
+
+  function animateCounter(el) {
+    if (el.dataset.animated === 'true') return;
+    const target = Number(el.dataset.target || 0);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200;
+    const startTime = performance.now();
+    const formatValue = (value) => `${value.toLocaleString('en-IN')}${suffix}`;
+
+    const tick = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(target * eased);
+      el.textContent = formatValue(current);
+      if (progress < 1) requestAnimationFrame(tick);
+      else {
+        el.textContent = formatValue(target);
+        el.dataset.animated = 'true';
+      }
+    };
+
+    requestAnimationFrame(tick);
+  }
+
+  // form — submits to Web3Forms and emails realpowdercoating1@gmail.com
+  async function submitQuote(e) {
+    e.preventDefault();
+    const form = e.target;
+    const note = document.getElementById('formNote');
+    const btn = form.querySelector('button[type="submit"]');
+    const key = form.querySelector('input[name="access_key"]').value;
+
+    if (key === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+      note.style.color = 'var(--cure)';
+      note.textContent = '// Form not connected yet — call us at +91 98986 06618.';
+      return false;
+    }
+
+    btn.disabled = true;
+    note.style.color = 'var(--fog)';
+    note.textContent = '// Sending your request...';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.reset();
+        note.style.color = 'var(--cure)';
+        note.textContent = '// Thanks — we\'ll be in touch within 1 business day.';
+      } else {
+        note.style.color = '#ff8a6a';
+        note.textContent = '// Couldn\'t send — please call us at +91 98986 06618.';
+      }
+    } catch (err) {
+      note.style.color = '#ff8a6a';
+      note.textContent = '// Network error — please call us at +91 98986 06618.';
+    } finally {
+      btn.disabled = false;
+    }
+    return false;
+  }
+</script>
+</body>
+</html>
