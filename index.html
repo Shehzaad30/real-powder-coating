@@ -237,6 +237,20 @@
     padding: 18px;
   }
   .hero-visual-stage > * { position: relative; z-index: 2; }
+  /* Photo slots. The CSS schematic underneath stays visible until a real
+     photo loads; if the file is missing the <img> is removed, so no broken
+     icon is ever shown. Absolutely positioned + object-fit means the
+     container defines the box, so intrinsic size cannot shift the layout. */
+  .hero-visual-stage > .stage-photo,
+  .facility-image > .stage-photo {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center; z-index: 1; border-radius: 16px;
+  }
+  .has-photo .hero-machine, .has-photo .hero-conveyor, .has-photo .hero-gun,
+  .has-photo .hero-product, .has-photo .hero-label,
+  .has-photo .facility-frame, .has-photo .facility-track,
+  .has-photo .facility-product, .has-photo .hotspot { display: none; }
+
   .hero-visual-stage::before {
     content: ""; position: absolute; inset: 0; background:
       linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
@@ -771,6 +785,8 @@
           <span>Powder line · A2</span>
         </div>
         <div class="hero-visual-stage">
+          <img class="stage-photo" src="hero.png" fetchpriority="high" decoding="async"
+               alt="Powder coating gun spraying a metal panel inside the booth" />
           <div class="hero-label hero-label-top">Surface prep</div>
           <div class="hero-label hero-label-right">Cure line</div>
           <div class="hero-label hero-label-booth">Powder booth</div>
@@ -964,6 +980,8 @@
       <div class="facility-grid">
         <div class="facility-visual reveal">
           <div class="facility-image">
+            <img class="stage-photo" src="facility.png" loading="lazy" decoding="async"
+                 alt="Freshly powder coated parts on the finishing line" />
             <div class="facility-frame"></div>
             <div class="facility-track"></div>
             <div class="facility-product facility-product-a"></div>
@@ -1337,6 +1355,19 @@
 
     requestAnimationFrame(tick);
   }
+
+  // Photo slots: a loaded photo hides the schematic beneath it; a missing
+  // file removes the image so the schematic shows instead of a broken icon.
+  document.querySelectorAll('.stage-photo').forEach(img => {
+    const stage = img.parentElement;
+    const show = () => stage.classList.add('has-photo');
+    const drop = () => img.remove();
+    if (img.complete) { img.naturalWidth ? show() : drop(); }
+    else {
+      img.addEventListener('load', show, { once: true });
+      img.addEventListener('error', drop, { once: true });
+    }
+  });
 
   // form — submits to Web3Forms and emails realpowdercoating1@gmail.com
   async function submitQuote(e) {
