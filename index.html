@@ -3,8 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Real Powder Coating — Durable finishes, done right</title>
-<meta name="description" content="Real Powder Coating delivers durable, factory-grade powder coat finishes on automotive, architectural, and industrial metalwork. Blast, coat, and cure — built to last." />
+<title>Powder Coating in Vadodara — Real Powder Coating</title>
+<meta name="description" content="Powder coating in Vadodara, Gujarat. Durable, oven-cured finishes on automotive, architectural and industrial metalwork — 100+ shades, sand blasting, pretreatment. Free quotes." />
+<link rel="canonical" href="https://real-powder-coating.vercel.app/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff5a1f'/%3E%3Crect x='6' y='7' width='20' height='6' rx='3' fill='%23fff' opacity='.55'/%3E%3C/svg%3E" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Real Powder Coating" />
+<meta property="og:title" content="Powder Coating in Vadodara — Real Powder Coating" />
+<meta property="og:description" content="Durable, oven-cured powder coat finishes on automotive, architectural and industrial metalwork. 100+ shades. Free quotes." />
+<meta property="og:url" content="https://real-powder-coating.vercel.app/" />
+<meta property="og:image" content="https://real-powder-coating.vercel.app/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Real Powder Coating", "description": "Industrial powder coating, sand blasting and metal pretreatment in Vadodara, Gujarat.", "url": "https://real-powder-coating.vercel.app/", "telephone": "+919898606618", "email": "realpowdercoating1@gmail.com", "image": "https://real-powder-coating.vercel.app/og.png", "address": {"@type": "PostalAddress", "streetAddress": "C-8/3, Road No. 2, Ajwa Road, Sardar Estate", "addressLocality": "Vadodara", "addressRegion": "Gujarat", "postalCode": "390019", "addressCountry": "IN"}, "areaServed": {"@type": "City", "name": "Vadodara"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "opens": "09:00", "closes": "19:00"}], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Industrial Powder Coating"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Surface Preparation"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sand Blasting"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Metal Pretreatment"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Batch Production Coating"}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Colour Matching"}}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -70,6 +82,14 @@
     box-shadow: var(--focus-ring);
     border-color: var(--cure);
   }
+
+  .skip-link {
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    background: var(--cure); color: #1a0c04; padding: 12px 18px; border-radius: 0 0 8px 0;
+    font-family: "Archivo", sans-serif; font-weight: 700;
+  }
+  .skip-link:focus { left: 0; }
+  .nav-cta-mobile { display: none; }
 
   .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(18px, 3vw, 28px); }
   .card-equal, .svc, .facility-card, .facility-stat, .proc, .industry-card, .hero-stat, .why-item, .contact-side, form {
@@ -685,6 +705,7 @@
     .nav-toggle { display: block; }
     .nav-links.open { display: flex; position: absolute; top: 74px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--steel); border-bottom: 1px solid var(--line); padding: 12px 28px 22px; }
     .nav-links.open a { padding: 13px 0; border-bottom: 1px solid var(--line); width: 100%; }
+    .nav-links.open .nav-cta-mobile { display: block; color: var(--cure); font-weight: 700; }
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
     .hero-cta { flex-direction: column; align-items: flex-start; }
     .svc-grid, .proc-grid, .finish-wall, .why-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -723,6 +744,7 @@
 </style>
 </head>
 <body>
+<a href="#services" class="skip-link">Skip to content</a>
 
 <!-- NAV -->
 <header id="top">
@@ -740,9 +762,11 @@
       <a href="gallery.html">Shades</a>
       <a href="#why">Why us</a>
       <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta-mobile">Request a quote →</a>
+      <a href="https://wa.me/919898606618" class="nav-cta-mobile" rel="noopener">WhatsApp us</a>
     </nav>
     <a href="#contact" class="btn btn-primary">Request a quote <span class="btn-arrow">→</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -1209,6 +1233,11 @@
           <div class="sub">Mon–Sat, 9am – 7pm</div>
         </div>
         <div class="info-item">
+          <div class="k">WhatsApp</div>
+          <div class="v"><a href="https://wa.me/919898606618?text=Hi%2C%20I%27d%20like%20a%20powder%20coating%20quote." rel="noopener">Send us a photo of your part</a></div>
+          <div class="sub">Fastest way to get a price</div>
+        </div>
+        <div class="info-item">
           <div class="k">Email</div>
           <div class="v"><a href="mailto:realpowdercoating1@gmail.com">realpowdercoating1@gmail.com</a></div>
           <div class="sub">Quotes answered within 1 business day</div>
@@ -1251,7 +1280,7 @@
         </div>
         <div class="field"><label for="msg">Details</label><textarea id="msg" name="msg" placeholder="How many parts, rough sizes, timeline..."></textarea></div>
         <button type="submit" class="btn btn-primary">Send quote request <span class="btn-arrow">→</span></button>
-        <div class="form-note" id="formNote">// We'll reply with a price &amp; turnaround</div>
+        <div class="form-note" id="formNote" role="status" aria-live="polite">// We'll reply with a price &amp; turnaround</div>
       </form>
     </div>
   </div>
@@ -1274,10 +1303,10 @@
       <div class="foot-cols">
         <div class="foot-col">
           <h4>Services</h4>
-          <a href="#services">Automotive &amp; moto</a>
-          <a href="#services">Architectural</a>
-          <a href="#services">Furniture</a>
-          <a href="#services">Industrial</a>
+          <a href="#services">Industrial powder coating</a>
+          <a href="#services">Sand blasting</a>
+          <a href="#services">Metal pretreatment</a>
+          <a href="#services">Custom colour matching</a>
         </div>
         <div class="foot-col">
           <h4>Company</h4>
@@ -1314,8 +1343,14 @@
   window.addEventListener('scroll', updateHeader, { passive: true });
 
   if (toggle && links) {
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
   }
 
   const io = new IntersectionObserver((entries) => {
@@ -1354,6 +1389,13 @@
     };
 
     requestAnimationFrame(tick);
+  }
+
+  // A shade picked in the gallery arrives as ?color= and fills the quote form.
+  const pickedColour = new URLSearchParams(location.search).get('color');
+  if (pickedColour) {
+    const field = document.getElementById('color');
+    if (field) field.value = pickedColour;
   }
 
   // Photo slots: a loaded photo hides the schematic beneath it; a missing
