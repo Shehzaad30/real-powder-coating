@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://real-powder-coating.vercel.app/sitemap.xml
